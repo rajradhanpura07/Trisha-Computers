@@ -1,0 +1,446 @@
+/* ================= ADMIN LOGIN PAGE ================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(150deg, #0B0D10, #0A74DA);
+
+}
+
+/* ================= MAIN ================= */
+.login-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-card {
+    position: relative;
+    transition: 0.35s ease;
+}
+
+/* white 4K glow effect */
+.login-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.7),
+        0 0 40px rgba(255,255,255,0.6),
+        0 0 80px rgba(255,255,255,0.45),
+        0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* ================= LOGIN CARD ================= */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 45px 40px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    text-align: center;
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.4s ease;
+}
+
+.login-card h2 {
+    margin-bottom: 25px;
+    color: #0d1b2a;
+    font-weight: 700;
+}
+
+/* ================= FORM ================= */
+.form-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #444;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+/* input focus effect */
+.form-group input:focus {
+    border-color: #1b4f8a;
+    box-shadow: 0 0 0 2px rgba(27,79,138,0.15);
+    outline: none;
+}
+
+/* ================= BUTTON ================= */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    background: linear-gradient(90deg, #1b4f8a, #163d6b);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+/* ================= ERROR ================= */
+.error {
+    color: #dc3545;
+    margin-top: 14px;
+    font-weight: 600;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    background: linear-gradient(90deg, #0d1b2a, #1b4f8a);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #ffd369;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: linear-gradient(90deg, #0d1b2a, #1b4f8a);
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* ================= ADMIN DASHBORD PAGE ================= */
+
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FULL PAGE LAYOUT FIX */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    display: flex;
+    flex-direction: column; /* stack header, content, footer */
+}
+
+/* Push footer down */
+.container {
+    background: #fff;
+    padding: 60px 80px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    
+    max-width: 500px;
+    margin: 80px auto;
+    text-align: center;
+
+    flex: 1; /* ⭐ THIS pushes footer to bottom */
+}
+
+
+/* Title */
+.container h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Subtitle */
+.subtitle {
+    color: #777;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Button base */
+.btn {
+    padding: 12px 28px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Colors */
+.primary {
+    background: #4e73df;
+}
+
+.secondary {
+    background: #858796;
+}
+
+/* Hover */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .btn-group {
+        flex-direction: column;
+    }
+}
+
+
+
+
+/* ================= EXISTING CLIENT PAGE ================= */
+
+.client-table-wrapper {
+    max-width: 1500px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Title */
+.client-table-wrapper h2 {
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 600;
+    color: #111;
+}
+
+/* Table */
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+/* Header */
+.client-table th {
+    text-align: left;
+    background: #f3f4f6;
+    color: #374151;
+    padding: 12px 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+/* Cells */
+.client-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f1f1;
+    color: #444;
+}
+
+/* Row hover */
+.client-table tr:hover {
+    background: #f9fafb;
+}
+
+/* ================= Buttons ================= */
+
+.table-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.15s ease;
+}
+
+/* Add button */
+.btn-add {
+    background: #16a34a;
+    color: #fff;
+}
+
+.btn-add:hover {
+    background: #15803d;
+}
+
+/* Show button */
+.btn-show {
+    background: #2563eb;
+    color: #fff;
+}
+
+.btn-show:hover {
+    background: #1d4ed8;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 22px;
+
+    background: #4e73df;
+    color: #fff;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 8px;
+
+    transition: all 0.25s ease;
+}
+
+/* hover */
+.btn-back:hover {
+    background: #2e59d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* click */
+.btn-back:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+
+
+/* ================= ADD CLIENT PAGE ================= */
+
+
+ .form-container {
+            width: 800px;
+            background: #fff;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #2c5364;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #203a43;
+        }
+
+        @media (max-width: 600px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+
+
+
+/* ================= ADD ? PAGE ================= */
