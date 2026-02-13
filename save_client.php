@@ -3,11 +3,13 @@ include 'db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Escape form data
+    /* =========================
+       ESCAPE ONLY STRINGS
+    ==========================*/
+
     $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
     $last_name  = mysqli_real_escape_string($conn, $_POST['last_name']);
     $company    = mysqli_real_escape_string($conn, $_POST['company']);
-    $company_branch    = mysqli_real_escape_string($conn, $_POST['company_branch']);
     $email      = mysqli_real_escape_string($conn, $_POST['email']);
     $phone      = mysqli_real_escape_string($conn, $_POST['phone']);
     $address1   = mysqli_real_escape_string($conn, $_POST['address1']);
@@ -19,12 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $priority   = mysqli_real_escape_string($conn, $_POST['priority']);
     $info       = mysqli_real_escape_string($conn, $_POST['info']);
 
-    $company_branch = $_POST['company_branch']; // array
+    // branch array (NO ESCAPE HERE)
+    $branches = $_POST['company_branch'];   // array
 
 
-    /* -------------------------
-       INSERT CLIENT
-    --------------------------*/
+    /* =========================
+       INSERT CLIENT (NO branch column)
+    ==========================*/
 
     $sql = "INSERT INTO clients 
         (first_name, last_name, company, email, phone, address1, address2, city, state, zip, website, priority, info)
@@ -34,26 +37,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_query($conn, $sql)) {
 
-        // get inserted client id
         $client_id = mysqli_insert_id($conn);
 
 
-        /* -------------------------
+        /* =========================
            INSERT BRANCHES SEPARATELY
-        --------------------------*/
+        ==========================*/
 
-        foreach ($branches as $b) {
+        if (!empty($branches)) {
 
-            if (!empty($b)) {
+            foreach ($branches as $b) {
 
-                $branch = mysqli_real_escape_string($conn, $b);
+                if (!empty($b)) {
 
-                mysqli_query($conn,
-                    "INSERT INTO client_branches (client_id, branch_name)
-                     VALUES ('$client_id', '$branch')");
+                    $branch = mysqli_real_escape_string($conn, $b);
+
+                    mysqli_query($conn,
+                        "INSERT INTO client_branches (client_id, branch_name)
+                         VALUES ('$client_id', '$branch')");
+                }
             }
         }
-
 
         echo "<script>
                 alert('Client Added Successfully');

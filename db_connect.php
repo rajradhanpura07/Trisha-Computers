@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "project_trisha_computers";
+$dbname = "trisha_computers";
 // $dbname = "client_details";
 
 
